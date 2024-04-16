@@ -58,3 +58,16 @@ exports.updateCat = async (req, res) => {
         res.status(404).json({ message: 'Cat not found' });
     }
 }
+
+exports.deleteCat = async (req, res) => {
+    try {
+        const index = cats.findIndex(cat => cat.id === parseInt(req.params.id));
+        if (index === -1) {
+            return res.status(404).json({ message: 'Cat not found' });
+        }
+        cats.splice(index, 1);
+        res.json({ message: 'Cat deleted' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
