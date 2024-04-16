@@ -35,3 +35,14 @@ exports.getCatById = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+exports.createCat = async (req, res) => {
+    const { name, age } = req.params;
+    const cat = {
+        id: cats.length + 1,
+        name,
+        age
+    };
+    cats.push(cat);
+    res.status(201).json(cat);
+};
