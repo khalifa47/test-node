@@ -14,4 +14,7 @@ router.post('/:name-:age', catsController.createCat);
 // Update a cat by id
 router.put('/:id/:name-:age', catsController.updateCat);
 
+// Delete a cat by id
+router.delete('/:id', catsController.deleteCat);
+
 module.exports = router;
