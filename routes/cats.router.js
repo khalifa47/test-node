@@ -11,4 +11,7 @@ router.get('/:id', catsController.getCatById);
 // Create a cat with a name and age
 router.post('/:name-:age', catsController.createCat);
 
+// Update a cat by id
+router.put('/:id/:name-:age', catsController.updateCat);
+
 module.exports = router;
