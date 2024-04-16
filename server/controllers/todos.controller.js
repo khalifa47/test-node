@@ -1,11 +1,11 @@
 const Todo = require('../models/todos.model');
 
 let todos = [
-    new Todo(1, 'Buy groceries', 'High', new Date(), false, null),
-    new Todo(2, 'Walk the dog', 'Low', new Date(), false, null),
-    new Todo(3, 'Do laundry', 'Medium', new Date(), false, null),
-    new Todo(4, 'Wash dishes', 'High', new Date(), false, null),
-    new Todo(5, 'Water plants', 'Low', new Date(), false, null)
+    new Todo(1, 'Buy groceries', 1, new Date(), false, null),
+    new Todo(2, 'Walk the dog', 3, new Date(), false, null),
+    new Todo(3, 'Do laundry', 2, new Date(), false, null),
+    new Todo(4, 'Wash dishes', 1, new Date(), false, null),
+    new Todo(5, 'Water plants', 3, new Date(), false, null)
 ];
 
 exports.getAllTodos = async (req, res) => {
