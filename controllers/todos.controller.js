@@ -28,3 +28,17 @@ exports.getTodoById = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+
+exports.createTodo = async (req, res) => {
+    const { title, priority } = req.body;
+    const todo = new Todo(
+        todos.length + 1,
+        title,
+        priority,
+        new Date(),
+        false,
+        null
+    );
+    todos.push(todo);
+    res.status(201).json(todo);
+};
