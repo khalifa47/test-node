@@ -8,4 +8,7 @@ router.get('/', todosController.getAllTodos);
 // Get a todo by id
 router.get('/:id', todosController.getTodoById);
 
+// Create a new todo
+router.post('/', todosController.createTodo);
+
 module.exports = router;
