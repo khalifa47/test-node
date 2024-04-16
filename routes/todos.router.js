@@ -11,4 +11,7 @@ router.get('/:id', todosController.getTodoById);
 // Create a new todo
 router.post('/', todosController.createTodo);
 
+// Update a todo
+router.put('/:id', todosController.updateTodo);
+
 module.exports = router;
