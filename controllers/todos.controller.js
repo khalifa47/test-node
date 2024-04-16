@@ -58,3 +58,29 @@ exports.updateTodo = async (req, res) => {
         res.status(404).json({ message: 'Todo not found' });
     }
 }
+
+exports.updateTodo = async (req, res) => {
+    const todo = todos.find(todo => todo.id === parseInt(req.params.id));
+    if (todo) {
+        const { title, priority, done } = req.body;
+        if (title) todo.title = title;
+        if (priority) todo.priority = priority;
+        if (done) {
+            todo.done = done;
+            todo.doneAt = done ? new Date() : null;
+        }
+        res.json(todo);
+    } else {
+        res.status(404).json({ message: 'Todo not found' });
+    }
+}
+
+exports.deleteTodo = async (req, res) => {
+    const todo = todos.find(todo => todo.id === parseInt(req.params.id));
+    if (todo) {
+        todos = todos.filter(todo => todo.id !== parseInt(req.params.id));
+        res.json({ message: 'Todo deleted' });
+    } else {
+        res.status(404).json({ message: 'Todo not found' });
+    }
+}

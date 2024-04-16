@@ -14,4 +14,7 @@ router.post('/', todosController.createTodo);
 // Update a todo
 router.put('/:id', todosController.updateTodo);
 
+// Delete a todo
+router.delete('/:id', todosController.deleteTodo);
+
 module.exports = router;
