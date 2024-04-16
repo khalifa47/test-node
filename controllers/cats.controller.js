@@ -46,3 +46,15 @@ exports.createCat = async (req, res) => {
     cats.push(cat);
     res.status(201).json(cat);
 };
+
+exports.updateCat = async (req, res) => {
+    const cat = cats.find(cat => cat.id === parseInt(req.params.id));
+    if (cat) {
+        const { name, age } = req.params;
+        if (name) cat.name = name;
+        if (age) cat.age = age;
+        res.json(cat);
+    } else {
+        res.status(404).json({ message: 'Cat not found' });
+    }
+}
