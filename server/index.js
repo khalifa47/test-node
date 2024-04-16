@@ -1,9 +1,11 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const PORT = 3000;
 const catsRouter = require('./routes/cats.router');
 const todosRouter = require('./routes/todos.router');
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/cats', catsRouter);
